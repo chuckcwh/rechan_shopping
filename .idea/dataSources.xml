@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2623808625">
+    <data-source source="LOCAL" name="Django default" uuid="1f6c25f6-d802-4b97-ab97-fe64c87a0927">
+      <driver-ref>postgresql</driver-ref>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:rechan</jdbc-url>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
