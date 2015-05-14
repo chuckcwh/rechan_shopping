@@ -3,6 +3,6 @@
 db_name: "rechan"
 db_user: "chuck"
 db_password: myadminpassword
-nginx_server_name: rechan
+nginx_server_name: http://ec2-52-24-226-149.us-west-2.compute.amazonaws.com/
 django_settings_file: "rechan.settings"
 proxy_ip: 127.0.0.1:8001
