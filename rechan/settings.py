@@ -25,19 +25,20 @@ SECRET_KEY = '(==8u5k&eq+yefj40o3a_2=t(wip6m^-w@7nm1^b8%6r-fmukk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+TEMPLATE_DEBUG = True
 
+ALLOWED_HOSTS = []
 
 # Application definition
 
 INSTALLED_APPS = (
+    'rechan_shopping',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rechan_shopping',
     'debug_toolbar',
 )
 
@@ -70,8 +71,22 @@ TEMPLATES = [
     },
 ]
 
+AUTH_USER_MODEL = 'rechan_shopping.Member'
+
 WSGI_APPLICATION = 'rechan.wsgi.application'
 
+TIME_ZONE = 'Asia/Taipei'
+LANGUAGE_CODE = 'zh-hant'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = 'index'
+LOGIN_URL = 'login'
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, "static", *MEDIA_URL.strip("/").split("/"))
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -87,10 +102,6 @@ WSGI_APPLICATION = 'rechan.wsgi.application'
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
 USE_I18N = True
 
 USE_L10N = True
@@ -100,8 +111,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
-
-STATIC_URL = '/static/'
 
 try:
     from local_settings import *

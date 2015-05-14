@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    訂單 - 瑞成糖果玩具網
+{% endblock title %}
+
+{% block ext_css %}
+{% endblock ext_css %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div id="item_list">
+                <h3>購買清單</h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>商品名稱</td>
+                            <td>數量</td>
+                            <td>單價</td>
+                            <td>小計</td>
+                        </tr>
+                    </thead>
+                    <tbody id="item_table">
+                    </tbody>
+                </table>
+            </div>
+            <div>總計：<span id="total"> 元</span></div>
+            <button class="btn btn-primary">開立訂單</button>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block ext_js %}
+    <script>
+
+    </script>
+{% endblock ext_js %}

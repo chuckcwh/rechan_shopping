@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    登入 - 瑞成糖果玩具網
+{% endblock title %}
+
+
+{% block body %}
+    <div id="login_window">
+        <form id=login_form" method="post" action=".">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input class="btn btn-primary" type="submit" value="Log in">
+        </form>
+
+        <p>還不是會員? <a href="{% url 'register' %}">註冊會員!</a></p>
+        <p>忘記密碼? <a href="{% url 'password_reset' %}">點選這裡</a></p>
+    </div>
+{% endblock %}
+
+
+
+
+

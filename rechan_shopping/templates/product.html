@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    <{{ prod.name }}> 瑞成糖果玩具購物網
+{% endblock title %}
+
+{% block ext_css %}
+{% endblock ext_css %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6">
+            <img id="profile_img" src="{{ prod.photo.url }}" alt="{{ prod.description }}"/>
+        </div>
+        <div class="col-md-6">
+            <div id="profile_des">
+                ID: {{ prod.id }}<br>
+                Name:{{ prod.name }}<br>
+                Description: {{ prod.description }}<br>
+                <input type="number" name="quantity" min="1">
+                <button class="btn btn-primary purchase" value="{{ prod.id }}">購買</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3>運送說明</h3>
+            <ul>
+                <li>發票將隨商品寄送。</li>
+                <li>開立訂單後，店主將於一個工作天內，以email回覆訂單，並請求ATM付款。</li>
+                <li>若商品有庫存，原則上將於付款成功後，5個工作天內送達(不含週六日)。</li>
+                <li>若商品斷貨，店主有權調整訂單，並於email中註明。</li>
+                <li>送貨方式：由店主透過郵局送達。目前尚無寄送海外服務。</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h3>售後服務</h3>
+            <ul>
+{#                <li>購買的商品享有到貨七天的鑑賞期。</li>#}
+                <li>商品欲退換貨請於到貨七天內寄回(以郵戳為憑)，且商品必須是全新狀態與完整包裝，包含發票、商品、附件、內外包裝、隨貨文件、贈品等。</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block ext_js %}
+{% endblock ext_js %}

@@ -1,0 +1,8 @@
+---
+
+db_name: "rechan"
+db_user: "chuck"
+db_password: myadminpassword
+nginx_server_name: rechan
+django_settings_file: "portfolio.settings"
+proxy_ip: 127.0.0.1:8001
