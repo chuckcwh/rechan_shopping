@@ -1,135 +1,319 @@
-$pink: #cba9af;
-$brown: #B96D40;
-$darkgrey: #262626;
-$blue: #3F7CAC;
-$green: #BDC4A7;
-$lightgrey: #ebebeb;
+//colors
+$grey: #332f2f;
+$middle_grey: #444;
+$white: #ffffff;
+$red: #e74c3c;
+$light_grey: #ccc;
 
+html {
+	width: 100%;
+	min-height: 100%;
+}
 body {
-  font-family: 'Heiti TC', SimHei, PMingLiU;
-  font-weight: bold;
-  background-color: $lightgrey;
+	width: 100%;
+	min-height: 100%;
+	padding-top: 140px;
 }
-
 a {
-  &:link {
-    color: white;
-  }
-  &:hover {
-    text-decoration: none !important;
-  }
+	color: $grey;
+	//Instead of the line below you could use @includetransition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+	transition: all .15s ease-out;
+	&:hover {
+		text-decoration: none;
+		color: $middle_grey;
+	}
 }
 
-#nav {
-  background-color: $darkgrey;
-  max-width: 100%;
-  #brand_zone {
-    font-size: 16px;
-    display: inline-block;
-    #brand {
-      position: relative;
-      color: white;
-      margin: 50px 40px -10px 70px;
-      #main {
-        font-size: 70px;
-      }
-    }
-  }
-  #user_zone {
-    display: inline-block;
-    font-size: 24px;
-    color: white;
-    position: relative;
-    float: right;
-    padding: 35px 50px 0 0;
-    a {
-      color: white;
-      margin-left: 30px;
-    }
-  }
+
+//nav bar
+nav {
+	background-color: $white !important;
+	border: 0 !important;
+	.container-fluid {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.navbar-header {
+		height: 100px;
+		button {
+			margin-top: 25px !important;
+			margin-right: 50px!important;
+			padding: 0;
+			border: none !important;
+			font-size: 20px;
+			color: $red;
+			background-color: $white !important;
+			&:hover {
+				background-color: $white !important;
+				color: $red !important;
+			}
+		}
+	}
+	a.navbar-brand {
+		height: 80px;
+		margin-left: 65px !important;
+		margin-top: 10px;
+		padding: 0;
+		font-size: 40px;
+		img {
+			width: 80px;
+			height: 80px;
+		}
+	}
 }
 
-#cat_zone {
-  margin: 30px 40px 0 40px;
-  span {
-    font-size: 24px;
-//    margin-left: 10px;
-    margin-right: 10px;
-    color: gray;
-  }
-  #search_text {
-    width: 200px;
-    height: 50px;
-    padding: 5px 10px 5px 10px;
-    font-size: 20px;
-    border: 4px solid $darkgrey ($darkgrey, 50%);
-    border-radius: 5px;
-  }
-  div:nth-child(2) {
-    a {
-      font-size: 24px;
-      width: 150px;
-      height: 50px;
-      padding-top: 8px;
-      text-align: center;
-      color: white;
-      display: inline-block;
-      vertical-align: top;
-      margin: 0 15px;
-    }
-    a:first-child {
-      background-color: $brown;
-    }
-    a:nth-child(2) {
-      background-color: $pink;
-    }
-    a:nth-child(3) {
-      background-color: $blue;
-    }
-    a:nth-child(4) {
-      background-color: $green;
-    }
-  }
+
+//index page
+.prod_caption {
+	font-size: 20px;
 }
 
-.ad_zone {
-//  padding: 30px;
-//  display: inline-block;
-//  vertical-align: top;
-//  width: 350px;
-//  height: 350px;
-  .ad {
-//    background-size: cover;
-//    background-repeat: no-repeat;
-  }
+
+.content {
+	padding-bottom: 30px;
+	margin-bottom: -400px;
+	&:after {
+		content: " ";
+		display: block;
+		height: 400px;
+	}
 }
 
-.product_zone {
-//  width: 65%;
-  display: inline-block;
-  margin-left: 20px;
-  div {
-    margin: 0 20px 30px 0;
-    .card {
-      display: inline-block;
-        .prod_img {
-          width: 200px;
-          height: 200px;
-          display: inline-block;
-        }
-        a {
-          font-size: 16px;
-        }
-    }
-  }
+
+
+
+.collapsed {
+	color: $grey !important;
+}
+.main {
+	height: 80px;
+	margin-right: 50px;
+	a {
+		color: $grey !important;
+		font-size: 18px;
+		&:hover {
+			color: $red !important;
+		}
+	}
+	li {
+		padding-top: 25px;
+	}
+}
+.menu {
+	width: 100%;
+	background-color: $red;
+	padding-left: 100px;
+	padding-right: 100px;
+	a {
+		color: $white !important;
+		font-size: 16px;
+		&:hover {
+			color: $grey !important;
+		}
+	}
+	form {
+		margin-left: 15px;
+		margin-right: 15px;
+	}
+	.search {
+		div {
+			text-align: center;
+		}
+		button {
+			background: transparent;
+			color: $white;
+			border: none;
+		}
+		input {
+			border: none;
+			//Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+			box-shadow: none;
+			//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+			border-radius: 0;
+		}
+	}
+}
+.ad_window {
+	a {
+		display: block;
+		width: 100%;
+	}
+	img {
+		width: 100%;
+		text-align: center;
+		font-size: 33em;
+		color: $white;
+	}
+}
+.product {
+	text-align: center;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	img {
+		width: 100%;
+		font-size: 15em;
+		color: $white;
+		background-color: $light_grey;
+	}
+	figcaption {
+		margin-top: 20px;
+		font-size: 15px;
+	}
+	a:hover {
+		color: $red;
+	}
+}
+footer {
+	height: 400px;
+	margin-top: 2em;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: $red;
+	div {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+.map {
+	div {
+		width: 80%;
+		height: 18em;
+		margin: 15px auto;
+		padding: 10px;
+		text-align: center;
+		border: 2px solid $white;
+		color: $white;
+	}
+	h2 {
+		display: block;
+		margin-bottom: 25px;
+		margin-top: 35px;
+	}
+	p {
+		font-size: 20px;
+		color: $white;
+	}
+	span {
+		margin: 0 10px;
+	}
+}
+.copyright {
+	margin-top: 40px;
+	text-align: center;
+	color: $white;
+	h5 {
+		font-size: 15px;
+	}
+}
+figure.ad_window {
+	width: 100%;
+	max-height: 100%;
+	background-color: $light_grey;
+}
+.products section {
+	div {
+		text-align: center;
+		margin-top: 6em;
+		border-top: 1px solid $light_grey;
+	}
+	h2 {
+		position: relative;
+		top: -17px;
+		display: inline-block;
+		margin-top: 0;
+		background-color: $white;
+		padding-left: 10px;
+		padding-right: 10px;
+		color: $red;
+	}
+}
+.see-more a {
+	display: block;
+	width: 20%;
+	margin: 40px auto 10px;
+	border: 2px solid $grey;
+	padding: 10px 20px;
+	font-size: 20px;
+	text-align: center;
+	color: $grey;
+	&:hover {
+		border-color: $red;
+		color: $red;
+	}
+}
+.links a {
+	display: block;
+	width: 80%;
+	margin: 15px auto;
+	padding: 10px;
+	text-align: center;
+	border: 2px solid $white;
+	font-size: 20px;
+	color: $white;
+	&:hover {
+		border-color: $grey;
+		color: $grey;
+	}
 }
 
-//product description page
-#profile_img {
-  margin-top: 30px;
-  width: 80%;
-  margin-left: 8%;
+//small monitors
+@media (min-width: 980px) and (max-width: 1199px) {
+	.see-more a {
+		width: 25%;
+	}
 }
-#profile_des {
-  margin: 20px;
+
+//tablets
+@media (min-width: 768px) and (max-width: 991px) {
+	.content {
+		margin-bottom: -650px;
+		&:after {
+			height: 650px;
+		}
+	}
+	footer {
+		height: 650px;
+	}
+	.see-more a {
+		width: 100%;
+	}
+	.links a {
+		width: 80%;
+	}
+	.map div {
+		width: 80%;
+	}
+}
+
+
+//cell phones
+@media(max-width: 767px) {
+	body {
+		padding-top: 80px;
+	}
+	.main {
+		margin: 0;
+		a {
+			text-align: center;
+		}
+		li {
+			padding-top: 0;
+		}
+	}
+	.menu {
+		margin: 0;
+		a {
+			text-align: center;
+		}
+		form {
+			div {
+				margin: 0 auto;
+			}
+			input {
+				display: inline-block;
+				width: 82%;
+				margin: 0;
+			}
+		}
+	}
 }

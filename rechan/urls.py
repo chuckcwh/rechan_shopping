@@ -9,12 +9,17 @@ urlpatterns = [
     url(r'^profile/$', 'rechan_shopping.views.profile', name='profile'),
     url(r'^cart/$', 'rechan_shopping.views.cart', name='cart'),
     url(r'^faq/$', 'rechan_shopping.views.faq', name='faq'),
-    url(r'^product/cat=(?P<cat>[0-9A-Za-z_\-]+)/$', 'rechan_shopping.views.prod_list', name='prod_list'),
+    url(r'^product/(?P<cat>[0-9A-Za-z_\-]+)/$', 'rechan_shopping.views.prod_list', name='prod_list'),
     url(r'^product/(?P<prod_id>\d+)/$', 'rechan_shopping.views.product', name='product'),
+    url(r'^stock/$', 'rechan_shopping.views.stock', name='stock'),
+    url(r'^stock/(?P<prod_id>[0-9A-Za-z_\-]+)$', 'rechan_shopping.views.stock_detail', name='stock_detail'),
+    url(r'^admin_purchase_confirm/$', 'rechan_shopping.views.admin_purchase_confirm', name='admin_purchase_confirm'),
     url(r'^admin/', include(admin.site.urls)),
 
     # Ajax
     url(r'^get_cart_items/$', 'rechan_shopping.views.get_cart_items', name='get_cart_items'),
+    url(r'^get_stock/(?P<cat>[0-9A-Za-z_\-]+)/$', 'rechan_shopping.views.get_stock', name='get_stock'),
+    
 
     # Account management
     url(r'^register/$', 'rechan_shopping.views.register', name='register'),

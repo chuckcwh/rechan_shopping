@@ -1,5 +1,6 @@
 import json
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import user_passes_test
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -9,16 +10,21 @@ from rechan_shopping.models import Ads, Product
 
 def index(request):
     return render(request, 'index.html', {
-        'ads': Ads.objects.all().order_by('-publish_date'),
-        'toys': Product.objects.filter(category='Toys').order_by('-id')[:3],
-        'candies': Product.objects.filter(category='Candies').order_by('-id')[:3],
-        'draws': Product.objects.filter(category='Lucky_draw').order_by('-id')[:3],
+        'ads': Ads.objects.filter(activated=True).order_by('-publish_date'),
+        'discounts': Product.objects.filter(discount_S=True).order_by('-id')[:8],
+        'toys': Product.objects.filter(category='Toys').order_by('-id')[:8],
+        'candies': Product.objects.filter(category='Candies').order_by('-id')[:8],
+        'draws': Product.objects.filter(category='Lucky_draw').order_by('-id')[:8],
     })
 
 
 def prod_list(request, cat):
+    if cat == "Discount":
+        prods = Product.objects.filter(discount_S=True).order_by('-id')
+    else:
+        prods = Product.objects.filter(category=cat).order_by('-id')
     return render(request, 'prod_list.html', {
-        'prods': Product.objects.filter(category=cat).order_by('-id')[:20]
+        'prods': prods
     })
 
 def product(request, prod_id):
@@ -26,6 +32,42 @@ def product(request, prod_id):
         'prod': Product.objects.get(id=prod_id)
     })
 
+@user_passes_test(lambda u: u.is_superuser)
+def stock(request):
+    return render(request, 'admin_manager/stock.html')
+
+@user_passes_test(lambda u: u.is_superuser)
+def stock_detail(request, prod_id):
+    return render(request, 'admin_manager/stock_detail.html')
+
+@csrf_exempt
+def get_stock(request, cat):
+    stock = []
+    if request.method == 'GET':
+        if cat == "candies":
+            add = Product.objects.filter(category='Candies')
+        elif cat == "toys":
+            add = Product.objects.filter(category='Toys')
+        elif cat == "draws":
+            add = Product.objects.filter(category='Lucky_draw')
+        elif cat == "ads":
+            add = Ads.objects.filter(activated=True)
+        elif cat == "discounts":
+            add = Product.objects.filter(discount_S=True)
+        else:
+            add = ""
+        for obj in add:
+            stock.append({
+                'id': obj.id,
+                'name': obj.name,
+                'have': obj.have,
+                'discount': obj.discount_S
+            })
+    return HttpResponse(json.dumps(stock),
+                        content_type='application/json')
+
+def admin_purchase_confirm(request):
+    return render(request, 'admin_manager/admin_purchase_confirm.html')
 
 def faq(request):
     return render(request, 'faq.html')

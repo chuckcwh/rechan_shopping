@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+    [進貨] 瑞成糖果玩具購物網
+{% endblock title %}
+
+{% block ext_css %}
+{% endblock ext_css %}
+
+{% block body %}
+    <p>目前位置：貨物庫存資料</p>
+    <div>
+      <input type="radio" name="group1" value="ads" checked>廣告
+      <input type="radio" name="group1" value="discounts">特價品
+      <input type="radio" name="group1" value="candies">糖果
+      <input type="radio" name="group1" value="toys">玩具
+      <input type="radio" name="group1" value="draws">抽抽樂
+      <button class="btn btn-xs btn-primary"> + </button>
+    </div>
+
+    <div>
+        <table class="table table-striped">
+            <caption>貨物庫存資料</caption>
+            <thead>
+                <tr>
+                    <th>貨物名稱</th>
+                    <th>架上</th>
+                    <th>特價中</th>
+                    <th>詳細</th>
+                </tr>
+            </thead>
+            <tbody id="stock_show">
+
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
+
+{% block ext_js %}
+    <script src="{% static "js/stock.js" %}"
+{% endblock ext_js %}

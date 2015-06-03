@@ -42,6 +42,8 @@ class Product(models.Model):
     brand = models.CharField(max_length=100, blank=True, null=True)
     have = models.BooleanField(default=True)
     price = models.PositiveSmallIntegerField(default=0)
+    discount_S = models.BooleanField(default=False)
+    discount_price = models.PositiveSmallIntegerField(default=0)
     description = models.TextField(blank=True, null=True)
     # cat = models.ForeignKey(Category, related_name='products')
     buyer = models.ManyToManyField(Member, related_name='prod_buyers', blank=True)
@@ -50,7 +52,8 @@ class Product(models.Model):
         upload_to='product_photos',
         blank=True,
         null=True,
-        default='product_photos/default_img.png'
+        default='product_photos/default_img.jpg',
+        help_text='use 480x480px jpg or bigger square photo'
     )
     publish_date = models.DateField(auto_now_add=True)
 
@@ -59,14 +62,15 @@ class Product(models.Model):
 
 
 class Ads(models.Model):
-    title = models.CharField(max_length=80)
+    name = models.CharField(max_length=80)
     description = models.TextField()
     activated = models.BooleanField(default=True)
     image = models.ImageField(
         upload_to='ad_photos',
         blank=True,
         null=True,
-        default='ad_photos/default_img.png'
+        default='ad_photos/default_img.jpg',
+        help_text='use 2833px width x 1375px height jpg or photos in similar aspect ratio'
     )
     publish_date = models.DateField(auto_now_add=True)
 
@@ -74,7 +78,7 @@ class Ads(models.Model):
         return u"{}".format(self.title)
 
 
-class buy_list(models.Model):
+class Buy_list(models.Model):
     buyer = models.ForeignKey(Member, related_name='buylist_member')
 
     create_date = models.DateTimeField(auto_now_add=True)
