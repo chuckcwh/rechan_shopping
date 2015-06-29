@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'bootstrap_pagination',
     'rechan_shopping',
     'django.contrib.admin',
     'django.contrib.auth',

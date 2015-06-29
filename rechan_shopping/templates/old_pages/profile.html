@@ -1,15 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'old_pages/base.html' %}
 {% load staticfiles %}
 
 {% block title %}
-    常見問題 - 瑞成糖果玩具網
+    個人資料 - 瑞成糖果玩具網
 {% endblock title %}
 
 {% block ext_css %}
 {% endblock ext_css %}
 
 {% block body %}
-    <h1>常見問題</h1>
+    {{ user.username }}
+
+
 {% endblock %}
 
 {% block ext_js %}

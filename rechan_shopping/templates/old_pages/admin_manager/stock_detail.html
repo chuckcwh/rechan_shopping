@@ -1,18 +1,19 @@
-{% extends 'base.html' %}
+{% extends 'old_pages/base.html' %}
 {% load staticfiles %}
 
 {% block title %}
-    個人資料 - 瑞成糖果玩具網
+    [單筆資料] 瑞成糖果玩具購物網
 {% endblock title %}
 
 {% block ext_css %}
 {% endblock ext_css %}
 
 {% block body %}
-    {{ user.username }}
+    <p>目前位置：單筆庫存資料</p>
 
 
 {% endblock %}
 
 {% block ext_js %}
+    <script src="{% static "js/stock.js" %}"
 {% endblock ext_js %}

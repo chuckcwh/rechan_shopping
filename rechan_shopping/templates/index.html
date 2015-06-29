@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block title %}
-    瑞成糖果玩具網
+    瑞成糖果玩具小站
 {% endblock title %}
 
 {% block ext_css %}
@@ -10,101 +10,10 @@
 
 {% block body %}
 
-    <!-- Content -->
-    <section class="content">
-      <!-- Ad window -->
-      <figure class="ad_window">
-        <a href="#">
-          <img src="{% static 'img/landing/p2.jpg' %}" alt="全素五香豆干">
-        </a>
-      </figure>
-
-      <!-- products display  -->
-      <section class="products container">
-
-        <!-- sales -->
-        <section class="sales row">
-          <div>
-            <h2>特價商品</h2>
-          </div>
-          {% for discount in discounts %}
-            <figure class="product col-sm-12 col-md-6 col-lg-3">
-              <a href="{% url 'product' discount.id %}"><img src="{{ discount.photo.url }}" alt="產品名稱"/></a>
-              <figcaption>
-                <a class="prod_caption" href="{% url 'product' discount.id %}">{{ discount.name }}<br/>$ {{ discount.discount_price }}</a>
-              </figcaption>
-            </figure>
-          {% endfor %}
-
-          <section class="see-more col-xs-12">
-              <a href="{% url 'prod_list' 'Discount' %}">觀看更多特價商品</a>
-          </section>
-        </section>
-
-
-        <!-- candies -->
-        <section class="candies row">
-          <div>
-            <h2>糖菓</h2>
-          </div>
-          {% for candy in candies %}
-            <figure class="product col-sm-12 col-md-6 col-lg-3">
-              <a href="{% url 'product' candy.id %}"><img src="{{ candy.photo.url }}" alt="產品名稱"/></a>
-              <figcaption>
-                <a class="prod_caption" href="{% url 'product' candy.id %}">{{ candy.name }}<br/>$ {{ candy.price }}</a>
-              </figcaption>
-            </figure>
-          {% endfor %}
-
-          <section class="see-more col-xs-12">
-              <a href="{% url 'prod_list' 'Candies' %}">觀看更多糖菓商品</a>
-          </section>
-        </section>
-
-
-        <!-- toys -->
-        <section class="toys row">
-          <div>
-            <h2>玩具</h2>
-          </div>
-          {% for toy in toys %}
-          <figure class="product col-sm-12 col-md-6 col-lg-3">
-            <a href="{% url 'product' toy.id %}"><img src="{{ toy.photo.url }}" alt="產品名稱"/></a>
-            <figcaption>
-              <a class="prod_caption" href="{% url 'product' toy.id %}">{{ toy.name }}<br/>$ {{ toy.price }}</a>
-            </figcaption>
-          </figure>
-          {% endfor %}
-
-          <section class="see-more col-xs-12">
-              <a href="{% url 'prod_list' 'Toys' %}">觀看更多玩具商品</a>
-          </section>
-        </section>
-
-
-        <!-- draws -->
-        <section class="draws row">
-          <div>
-            <h2>抽抽樂</h2>
-          </div>
-          {% for draw in draws %}
-            <figure class="product col-sm-12 col-md-6 col-lg-3">
-              <a href="{% url 'product' draw.id %}"><img src="{{ draw.photo.url }}" alt="產品名稱"/></a>
-              <figcaption>
-                <a class="prod_caption" href="{% url 'product' draw.id %}">{{ draw.name }}<br/>${{ draw.price }}</a>
-              </figcaption>
-            </figure>
-          {% endfor %}
-
-          <section class="see-more col-xs-12">
-              <a href="{% url 'prod_list' 'Lucky_draw' %}">觀看更多抽抽樂</a>
-          </section>
-        </section>
-      </section>
-    </section>
+<p>出現吧精靈</p>
 
 {% endblock %}
 
 {% block ext_js %}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 {% endblock ext_js %}

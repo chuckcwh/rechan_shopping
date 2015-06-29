@@ -3,6 +3,13 @@ from django.db import models
 from django.utils import timezone
 
 
+BOSS_CHOICES = (
+    ('Murmur', 'Murmur'),
+    ('Toptalk', 'Toptalk'),
+    ('Smalltip', 'Smalltip')
+)
+
+
 class Member(AbstractUser):
     real_name = models.CharField(max_length=100)
 
@@ -23,6 +30,7 @@ class Contact(models.Model):
 #
 #     def __unicode__(self):
 #         return u"{}".format(self.category)
+
 
 class Tag(models.Model):
     tag_name = models.CharField(max_length=50)
@@ -86,3 +94,12 @@ class Buy_list(models.Model):
 
     def __unicode__(self):
         return u"{}: {}".format(self.buyer,)
+
+
+class Bosstalk(models.Model):
+    category = models.CharField(choices=BOSS_CHOICES, max_length=15)
+    title = models.CharField(max_length=150,
+                             blank=True,
+                             null=True,
+                             help_text='only Toptalks have titles!')
+    body = models.TextField()

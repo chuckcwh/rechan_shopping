@@ -1,0 +1,91 @@
+{% load staticfiles %}
+
+    <!-- Header -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- navbar for mobile-->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#header-bar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+          </button>
+          <!-- Logo -->
+          <a class="navbar-brand" href="{% url "index" %}">
+            <img src="{% static "img/rechan_logo_small.png" %}">
+            <!-- <span>瑞成</span> -->
+          </a>
+        </div>
+        <section class="collapse navbar-collapse" id="header-bar">
+          <ul class="main nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+
+              {% if user.is_staff %}
+                <!--<li class="account"><a href="{% url 'stock' %}"><span>進貨</span></a></li>-->
+                <!--<li class="account"><a href="{% url 'admin_purchase_confirm' %}"><span>顧客下單確認</span></a></li>-->
+
+                <li class="account">
+                  <a href="{% url 'profile' %}">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> [管理員]
+                    {% if user.realname %}
+                      {{ user.realname }}
+                    {% else %}
+                      {{ user.username }}
+                    {% endif %}
+                  </a>
+                </li>
+
+              {% else %}
+                <li class="account">
+                  <a href="{% url 'profile' %}">
+                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    {% if user.realname %}
+                      {{ user.realname }}
+                    {% else %}
+                      {{ user.username }}
+                    {% endif %}
+                  </a>
+                </li>
+              {% endif %}
+
+            {% else %}
+              <a href="{% url 'login' %}">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span>登入
+              </a>
+            {% endif %}
+
+            <li class="cart">
+              <a href="{% url 'cart' %}">
+                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">0</span>
+              </a>
+            </li>
+
+
+          </ul>
+          <div class="clearfix visible-md-block visible-lg-block"></div>
+          <ul class="menu nav navbar-nav">
+            <li class="candies">
+              <a href="{% url 'prod_list' 'Candies' %}">糖果</a>
+            </li>
+            <li class="toys">
+              <a href="{% url 'prod_list' 'Toys' %}">玩具</a>
+            </li>
+            <li class="draws">
+              <a href="{% url 'prod_list' 'Lucky_draw' %}">抽抽樂</a>
+            </li>
+            <li class="sales">
+              <a href="{% url 'prod_list' 'Discount' %}">特價商品</a>
+            </li>
+            <li class="search navbar-right">
+              <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input class="form-control" placeholder="搜尋..."/>
+                  <button type="submit" class="btn btn-default">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                  </button>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </nav>

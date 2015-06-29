@@ -1,0 +1,32 @@
+{% extends 'old_pages/base.html' %}
+{% load staticfiles %}
+{% load bootstrap_pagination %}
+
+
+{% block title %}
+    瑞成糖果玩具購物網
+{% endblock title %}
+
+{% block ext_css %}
+{% endblock ext_css %}
+
+{% block body %}
+  <section class="container">
+    <section class="row top_space">
+
+      {% for prod in prods %}
+        {% bootstrap_paginate prods %}
+        <figure class="product col-sm-12 col-md-6 col-lg-3">
+          <a href="{% url 'product' prod.id %}"><img src="{{ prod.photo.url }}" alt="產品名稱"/></a>
+          <figcaption>
+            <a class="prod_caption" href="{% url 'product' prod.id %}">{{ prod.name }}<br/>$ {{ prod.price }}</a>
+          </figcaption>
+        </figure>
+      {% endfor %}
+    </section>
+  </section>
+
+{% endblock %}
+
+{% block ext_js %}
+{% endblock ext_js %}
