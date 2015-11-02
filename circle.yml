@@ -1,0 +1,30 @@
+dependencies:
+  pre:
+    - chmod 600 conf.d/.ssh/id_rsa && ssh-add conf.d/.ssh/id_rsa
+  override:
+    - pip install -r requirements.txt --exists-action=w
+    - git clone git@github.com:mediapop/mp-ansible.git --depth 1 ../mp-ansible
+    - make install:
+        pwd: "../mp-ansible"
+test:
+  override:
+    - src/jaguar/manage.py check --settings=conf.settings.test
+    - src/jaguar/manage.py validate_templates --settings=conf.settings.test
+    - lessc -l src/jaguar/website/static/less/style.less
+    # Fix the LESS issues and then activate this.
+    # - grunt lesslint
+deployment:
+  staging:
+    branch: staging
+    commands:
+      - ansible-playbook jaguar-staging.yml --tags=deploy:
+          pwd: "../mp-ansible"
+      # The deploy will go through but will cause the build to fail if the actual site is screwed.
+      # This should probably check ALL sites, but 1 is fine for now.
+      - linkchecker http://sg.staging-jaguar.mediapop.co --no-warnings --ignore-url=googletagmanager.com --ignore-url=service@mcverrycrawford.co.nz --ignore-url=jaguar.com.sg/static/css/icons.fallback.css --ignore-url=jaguar.com.sg/static/css/bond_index.css
+  production:
+    branch: production
+    commands:
+      - ansible-playbook jaguar-production.yml --tags=deploy:
+          pwd: "../mp-ansible"
+      - linkchecker http://jaguar.com.sg --no-warnings --ignore-url=googletagmanager.com --ignore-url=service@mcverrycrawford.co.nz --ignore-url=jaguar.com.sg/static/css/icons.fallback.css --ignore-url=jaguar.com.sg/static/css/bond_index.css
