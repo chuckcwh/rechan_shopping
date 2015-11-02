@@ -2,7 +2,7 @@
 
 git_repo: https://github.com/chuckcwh/rechan_shopping.git
 git_version: master
-project_name: rechan
+project_name: conf
 virtualenv_path: /home/ubuntu/.virtualenvs/{{ project_name }}
 project_path: "/home/ubuntu/{{ project_name }}"
 requirements_file: "{{ project_path }}/requirements.txt"

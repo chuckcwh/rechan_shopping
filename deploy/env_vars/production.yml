@@ -1,8 +1,8 @@
 ---
 
-db_name: "rechan"
+db_name: "conf"
 db_user: "chuck"
 db_password: "123"
 nginx_server_name: ec2-52-24-226-149.us-west-2.compute.amazonaws.com
-django_settings_file: "rechan.settings"
+django_settings_file: "conf.settings"
 proxy_ip: 127.0.0.1:8001

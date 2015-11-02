@@ -1,6 +1,6 @@
 ---
 
-- name: Provision a rechan shopping website server
+- name: Provision a conf shopping website server
   hosts: all
   sudo: yes
   sudo_user:

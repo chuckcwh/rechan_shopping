@@ -1,12 +1,6 @@
-import json
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.decorators import user_passes_test
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from django.views.decorators.csrf import csrf_exempt
-from rechan_shopping.forms import MemberForm
+from django.shortcuts import render
+
 from rechan_shopping.models import Ads, Product
-from django.core.paginator import Paginator
 
 
 def index(request):

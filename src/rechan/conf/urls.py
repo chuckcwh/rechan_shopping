@@ -5,7 +5,7 @@ from django.contrib import admin
 
 urlpatterns = [
     # General
-    url(r'^$', 'rechan_shopping.views.index', name='index'),
+    url(r'^$', 'src.rechan.website.views.index', name='index'),
     # url(r'^profile/$', 'rechan_shopping.views.profile', name='profile'),
     # url(r'^cart/$', 'rechan_shopping.views.cart', name='cart'),
     # url(r'^faq/$', 'rechan_shopping.views.faq', name='faq'),
