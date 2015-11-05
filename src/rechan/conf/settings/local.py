@@ -3,7 +3,7 @@ from base import *
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-DATABASES['DEFAULT']['NAME'] = 'rechan_local'
+DATABASES['default']['NAME'] = 'rechan_local'
 
 INSTALLED_APPS += (
     'debug_toolbar',

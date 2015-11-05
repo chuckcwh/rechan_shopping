@@ -16,7 +16,7 @@ You will need the followings properly installed on your computer.
 * `git clone <repository-url>` this repository
 * change into the new directory
 * `npm install`
-* `bower install`
+* `src/rechan/manage.py bower_install`
 
 ## Running / Development
 

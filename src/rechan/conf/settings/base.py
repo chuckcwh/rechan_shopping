@@ -33,12 +33,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3' if 'test' in sys.argv else 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3' if 'test' in sys.argv else 'django.db.backends.postgresql_psycopg2',
         'NAME': get_env_setting('rechan_DB_NAME', 'rechan_dev'),
-        'USER': get_env_setting('rechan_DB_USER', 'root'),
-        'PASSWORD': get_env_setting('rechan_DB_PASSWORD', ''),
-        'HOST': get_env_setting('rechan_DB_HOST', '127.0.0.1'),
-        'PORT': get_env_setting('rechan_DB_PORT', '3306'),
+        # 'USER': get_env_setting('rechan_DB_USER', 'root'),
+        # 'PASSWORD': get_env_setting('rechan_DB_PASSWORD', ''),
+        # 'HOST': get_env_setting('rechan_DB_HOST', '127.0.0.1'),
+        # 'PORT': get_env_setting('rechan_DB_PORT', '3306'),
     }
 }
 
@@ -166,7 +166,7 @@ CACHES = {
 
 
 
-AUTH_USER_MODEL = 'rechan_shopping.Member'
+AUTH_USER_MODEL = 'website.Member'
 
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'

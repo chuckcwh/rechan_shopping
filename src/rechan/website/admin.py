@@ -1,6 +1,5 @@
 from django.contrib import admin
-
-from rechan_shopping.models import Member, Contact, Tag, Ads, Product, Buy_list
+from models import Member, Contact, Tag, Product, Ads, Buy_list
 
 
 admin.site.register(Member)
