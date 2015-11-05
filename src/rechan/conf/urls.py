@@ -5,7 +5,10 @@ from django.contrib import admin
 
 urlpatterns = [
     # General
-    url(r'^$', 'src.rechan.website.views.index', name='index'),
+    url(r'^', include('homepage.urls', namespace='homepage')),
+    url(r'^', include('website.urls', namespace='website')),
+    url(r'^admin/', include(admin.site.urls)),
+
     # url(r'^profile/$', 'rechan_shopping.views.profile', name='profile'),
     # url(r'^cart/$', 'rechan_shopping.views.cart', name='cart'),
     # url(r'^faq/$', 'rechan_shopping.views.faq', name='faq'),
@@ -19,7 +22,7 @@ urlpatterns = [
     # # Ajax
     # url(r'^get_cart_items/$', 'rechan_shopping.views.get_cart_items', name='get_cart_items'),
     # url(r'^get_stock/(?P<cat>[0-9A-Za-z_\-]+)/$', 'rechan_shopping.views.get_stock', name='get_stock'),
-    
+
 
     # # Account management
     # url(r'^register/$', 'rechan_shopping.views.register', name='register'),
@@ -31,7 +34,4 @@ urlpatterns = [
     #     'django.contrib.auth.views.password_reset_confirm',
     #     name='password_reset_confirm'),
     # url(r'^reset/done/$', 'django.contrib.auth.views.password_reset_complete', name='password_reset_complete'),
-]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

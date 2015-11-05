@@ -1,0 +1,17 @@
+# Auto detect text files and perform LF normalization
+* text eol=lf
+
+*.png binary
+*.jpg binary
+*.gif binary
+*.pdf binary
+*.webm binary
+*.mp4 binary
+*.ogg binary
+*.eot binary
+*.svg binary
+*.woff binary
+*.ttf binary
+*.woff2 binary
+*.ttf binary
+*.mp3 binary

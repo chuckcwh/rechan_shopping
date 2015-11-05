@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Page Not found{% endblock %}
+
+{% block page_title %}Page Not found{% endblock page_title %}
+
+{% block content %}
+<div class="error_page deskheighty">
+  <h1>Page Not Found</h1>
+
+  {% url 'homepage:index' as homepage_url %}
+  <p>We&rsquo;re sorry, the page you requested cannot be found.  Follow the links to access the <a href="{{ homepage_url }}">home page</a> or to further browse through our website..</p>
+</div>
+{% endblock content %}
